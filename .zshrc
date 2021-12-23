@@ -48,8 +48,8 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # History configurations
 HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=2000
+HISTSIZE=5000
+SAVEHIST=10000
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
 setopt hist_ignore_dups       # ignore duplicated commands history list
 setopt hist_ignore_space      # ignore commands that start with space
@@ -235,10 +235,27 @@ if [ -x /usr/bin/dircolors ]; then
     zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 fi
 
+
+mcd_fun() {
+    mkdir -p $1 && cd $1
+}
+
+# mkdir and cd alias
+alias mcd='mcd_fun '
+
+# open zshrc in sublime
+alias zconf='subl $HOME/Devel/dawtfiles/.zshrc'
+
+# source zshrc
+alias src='cp $HOME/Devel/dawtfiles/.zshrc $HOME/.zshrc && source $HOME/.zshrc'
+
 # some more ls aliases
 alias ll='ls -l'
 alias la='ls -A'
-alias l='ls -CF'
+alias l='ls -la'
+
+# git status
+alias gs='git status'
 
 # enable auto-suggestions based on the history
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
