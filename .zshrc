@@ -268,6 +268,7 @@ alias gs='git status'
 alias ga='git add .'
 alias gpsh='git push origin main'
 alias gpl='git pull'
+alias gcm='git commit -m'
 
 # Make 
 alias mk='make'
