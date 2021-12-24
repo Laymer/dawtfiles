@@ -257,6 +257,13 @@ alias l='ls -la'
 # git status
 alias gs='git status'
 
+# Make 
+alias mk='make'
+alias mcl='make clean'
+
+# Go to home directory
+alias gohome='cd $HOME'
+
 # enable auto-suggestions based on the history
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
     . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -268,3 +275,6 @@ fi
 if [ -f /etc/zsh_command_not_found ]; then
     . /etc/zsh_command_not_found
 fi
+
+# initialize starship prompt
+eval "$(starship init zsh)"
