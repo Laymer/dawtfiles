@@ -240,22 +240,34 @@ mcd_fun() {
     mkdir -p $1 && cd $1
 }
 
-# mkdir and cd alias
+# DAWTFILES LOCATION
+export DAWTFILES=$HOME/Devel/dawtfiles
+
+# mkdir and cd aliases
 alias mcd='mcd_fun '
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias ....='cd ../../../..'
 
 # open zshrc in sublime
 alias zconf='subl $HOME/Devel/dawtfiles/.zshrc'
 
 # source zshrc
-alias src='cp $HOME/Devel/dawtfiles/.zshrc $HOME/.zshrc && source $HOME/.zshrc'
+alias src='cp $DAWTFILES/.zshrc $HOME/.zshrc && source $HOME/.zshrc'
+
+# create or overwrite starship config file
+alias starshipcfg='cp $DAWTFILES/.config/starship.toml $HOME/.config/starship.toml'
 
 # some more ls aliases
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -la'
 
-# git status
+# git aliases
 alias gs='git status'
+alias ga='git add .'
+alias gpsh='git push origin main'
+alias gpl='git pull'
 
 # Make 
 alias mk='make'
